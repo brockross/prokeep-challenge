@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { validate } from 'email-validator';
 
 const FlexForm = styled.form`
   display: flex;
@@ -8,16 +9,32 @@ const FlexForm = styled.form`
   justify-content: center;
 `
 
-const Form = (props) => {
-  return (
-    <FlexForm>
-      <label>Email:</label>
-      <input type="text"></input>
-      <label>Password:</label>
-      <input type="text"></input>
-      <input type="submit"></input>
-    </FlexForm>
-  )
+const Label = styled.label`
+  font-family: Helvetica;
+  text-align: left;
+`
+
+class Form extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  render() {
+    return (
+      <FlexForm>
+        <Label>Email:</Label>
+        <input type="text"></input>
+        <Label>Password:</Label>
+        <input type="text"></input>
+        <input type="submit"></input>
+      </FlexForm>
+    )
+  }
 }
 
 export default Form;
