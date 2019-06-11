@@ -29,22 +29,31 @@ class Form extends React.Component {
   }
 
   handleInput(e) {
+    e.preventDefault();
+
     let text = e.target.value;
     let field = e.target.name;
 
     this.setState({
-      [field] : [text]
+      [field] : text
     })
   }
 
+  validatePW() {
+    return this.state.password.length;
+  }
+
   render() {
+    const {email, password} = this.state;
+
     return (
       <FlexForm>
         <Label>Email:</Label>
         <input type="text" name="email" onChange={(e) => this.handleInput(e)}></input>
-        <InvalidMessage isValid={validate(this.state.email.toString())}>Please enter a valid email.</InvalidMessage>
+        <InvalidMessage isValid={validate(email.toString())}>Please enter a valid email.</InvalidMessage>
         <Label>Password:</Label>
         <input type="text" name="password" onChange={(e) => this.handleInput(e)}></input>
+        <InvalidMessage isValid={!!this.validatePW()}>Please enter a password.</InvalidMessage>
         <input type="submit"></input>
       </FlexForm>
     )
