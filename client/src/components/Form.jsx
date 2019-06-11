@@ -40,11 +40,15 @@ class Form extends React.Component {
 
     this.setState({
       [field] : text
-    })
+    });
   }
 
-  validatePW() {
-    return this.state.password.length;
+  validatePW(password) {
+    return !!password.length;
+  }
+
+  validateEmail(email) {
+    return validate(email.toString());
   }
 
   handleSubmit() {
@@ -65,19 +69,18 @@ class Form extends React.Component {
 
   render() {
     const {email, password} = this.state;
-
     return (
       <FlexForm>
 
         <Label>Email:</Label>
-        <input type="text" name="email" onChange={(e) => this.handleInput(e)}></input>
-        <InvalidMessage isValid={validate(email.toString())}>Please enter a valid email.</InvalidMessage>
+        <input id="emailField" type="text" name="email" onChange={(e) => this.handleInput(e)}></input>
+        <InvalidMessage isValid={this.validateEmail(email)}>Please enter a valid email.</InvalidMessage>
 
         <Label>Password:</Label>
-        <input type="password" name="password" onChange={(e) => this.handleInput(e)}></input>
-        <InvalidMessage isValid={!!this.validatePW()}>Please enter a password.</InvalidMessage>
+        <input id="passwordField" type="password" name="password" onChange={(e) => this.handleInput(e)}></input>
+        <InvalidMessage isValid={this.validatePW(password)}>Please enter a password.</InvalidMessage>
 
-        <input type="submit" disabled={!(validate(email.toString()) && this.validatePW() )} onClick={(e) => {
+        <input id="submitButton" type="submit" disabled={!(this.validateEmail(email) && this.validatePW(password) )} onClick={(e) => {
           e.preventDefault();
           this.handleSubmit(e);
         }}></input>

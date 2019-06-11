@@ -6,6 +6,7 @@ exports[`Form should render correctly 1`] = `
     Email:
   </styled.label>
   <input
+    id="emailField"
     name="email"
     onChange={[Function]}
     type="text"
@@ -19,6 +20,7 @@ exports[`Form should render correctly 1`] = `
     Password:
   </styled.label>
   <input
+    id="passwordField"
     name="password"
     onChange={[Function]}
     type="password"
@@ -30,6 +32,7 @@ exports[`Form should render correctly 1`] = `
   </styled.p>
   <input
     disabled={true}
+    id="submitButton"
     onClick={[Function]}
     type="submit"
   />
