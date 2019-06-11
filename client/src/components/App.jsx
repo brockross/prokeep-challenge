@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 70vh;
 `
 
 class App extends React.Component {
