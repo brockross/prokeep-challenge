@@ -5,9 +5,9 @@ const cors = require('cors');
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('hey buddy');
-})
+app.use('/', express.static(__dirname + '/../client/dist'));
+app.use('/bundle.js', express.static(__dirname + '/../client/dist/bundle.js'));
+
 
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}`);
