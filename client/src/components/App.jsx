@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Form from './Form.jsx';
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -11,7 +13,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <h2>yooooooooo</h2>
+      <div>
+        <h2>Please log in.</h2>
+        <Form />
+      </div>
+
     )
   }
 }
