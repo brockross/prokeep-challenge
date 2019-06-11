@@ -16,6 +16,9 @@ const Label = styled.label`
 
 const InvalidMessage = styled.p`
   visibility: ${props => props.isValid ? 'hidden' : 'visible'};
+  color: red;
+  font-family: Helvetica;
+  font-size: 0.75em;
 `
 
 
@@ -47,7 +50,7 @@ class Form extends React.Component {
   handleSubmit() {
     const {email, password} = this.state;
 
-    fetch('https://reqres.in/api/login', {
+    fetch('https://reqres.in/api/login  ', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -57,7 +60,7 @@ class Form extends React.Component {
       })
     })
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => console.log(data.token));
   }
 
   render() {
@@ -71,7 +74,7 @@ class Form extends React.Component {
         <InvalidMessage isValid={validate(email.toString())}>Please enter a valid email.</InvalidMessage>
 
         <Label>Password:</Label>
-        <input type="text" name="password" onChange={(e) => this.handleInput(e)}></input>
+        <input type="password" name="password" onChange={(e) => this.handleInput(e)}></input>
         <InvalidMessage isValid={!!this.validatePW()}>Please enter a password.</InvalidMessage>
 
         <input type="submit" disabled={!(validate(email.toString()) && this.validatePW() )} onClick={(e) => {
