@@ -18,6 +18,7 @@ const InvalidMessage = styled.p`
   visibility: ${props => props.isValid ? 'hidden' : 'visible'};
 `
 
+
 class Form extends React.Component {
   constructor(props) {
     super(props)
@@ -43,18 +44,25 @@ class Form extends React.Component {
     return this.state.password.length;
   }
 
+  handleSubmit() {
+
+  }
+
   render() {
     const {email, password} = this.state;
 
     return (
       <FlexForm>
+
         <Label>Email:</Label>
         <input type="text" name="email" onChange={(e) => this.handleInput(e)}></input>
         <InvalidMessage isValid={validate(email.toString())}>Please enter a valid email.</InvalidMessage>
+
         <Label>Password:</Label>
         <input type="text" name="password" onChange={(e) => this.handleInput(e)}></input>
         <InvalidMessage isValid={!!this.validatePW()}>Please enter a password.</InvalidMessage>
-        <input type="submit"></input>
+
+        <input type="submit" disabled={!(validate(email.toString()) && this.validatePW() )}></input>
       </FlexForm>
     )
   }
