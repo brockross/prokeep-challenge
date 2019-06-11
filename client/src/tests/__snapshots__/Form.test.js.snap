@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should render correctly 1`] = `
+<styled.form>
+  <styled.label>
+    Email:
+  </styled.label>
+  <input
+    id="emailField"
+    name="email"
+    onChange={[Function]}
+    type="text"
+  />
+  <styled.p
+    isValid={false}
+  >
+    Please enter a valid email.
+  </styled.p>
+  <styled.label>
+    Password:
+  </styled.label>
+  <input
+    id="passwordField"
+    name="password"
+    onChange={[Function]}
+    type="password"
+  />
+  <styled.p
+    isValid={false}
+  >
+    Please enter a password.
+  </styled.p>
+  <input
+    disabled={true}
+    id="submitButton"
+    onClick={[Function]}
+    type="submit"
+  />
+</styled.form>
+`;
