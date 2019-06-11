@@ -28,6 +28,12 @@ const SubmitBtn = styled.input`
   border-radius: 2px;
   height: 2em;
   width: 30%;
+  background-color: ${props => {
+    return props.disabled ? 'white' : '#008d95';
+  }};
+  color: ${props => {
+    return props.disabled ? 'lightgrey' : 'white';
+  }};
 `
 
 const Label = styled.label`
@@ -38,11 +44,10 @@ const Label = styled.label`
 
 const InvalidMessage = styled.p`
   visibility: ${props => props.isValid ? 'hidden' : 'visible'};
-  color: red;
+  color: #c14321;
   font-family: Helvetica;
   font-size: 0.75em;
 `
-
 
 class Form extends React.Component {
   constructor(props) {
