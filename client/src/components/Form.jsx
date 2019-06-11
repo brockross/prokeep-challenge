@@ -91,7 +91,11 @@ class Form extends React.Component {
       })
     })
     .then(response => response.json())
-    .then(data => console.log(data.token));
+    .then(data => {
+      let message = data.token ? 'Login successful.' : 'No user found with those credentials.';
+
+      alert(message);
+    });
   }
 
   render() {
