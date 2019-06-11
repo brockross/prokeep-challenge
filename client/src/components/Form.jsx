@@ -45,7 +45,19 @@ class Form extends React.Component {
   }
 
   handleSubmit() {
+    const {email, password} = this.state;
 
+    fetch('https://reqres.in/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email, password
+      })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
   }
 
   render() {
@@ -62,7 +74,10 @@ class Form extends React.Component {
         <input type="text" name="password" onChange={(e) => this.handleInput(e)}></input>
         <InvalidMessage isValid={!!this.validatePW()}>Please enter a password.</InvalidMessage>
 
-        <input type="submit" disabled={!(validate(email.toString()) && this.validatePW() )}></input>
+        <input type="submit" disabled={!(validate(email.toString()) && this.validatePW() )} onClick={(e) => {
+          e.preventDefault();
+          this.handleSubmit(e);
+        }}></input>
       </FlexForm>
     )
   }
