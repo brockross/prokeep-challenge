@@ -2,16 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import { validate } from 'email-validator';
 
+const FormWrapper = styled.div`
+  background-color: lightgrey;
+  color: #262626;
+  border-radius: 5px;
+  width: 33vw;
+  padding: 2vw;
+`
+
 const FlexForm = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+`
+
+const InputField = styled.input`
+  border: none;
+  border-radius: 2px;
+  height: 2em;
+  width: 80%;
+`
+
+const SubmitBtn = styled.input`
+  border: none;
+  border-radius: 2px;
+  height: 2em;
+  width: 30%;
 `
 
 const Label = styled.label`
   font-family: Helvetica;
   text-align: left;
+  margin-bottom: 4px;
 `
 
 const InvalidMessage = styled.p`
@@ -70,21 +92,23 @@ class Form extends React.Component {
   render() {
     const {email, password} = this.state;
     return (
-      <FlexForm>
+      <FormWrapper>
+        <FlexForm>
 
-        <Label>Email:</Label>
-        <input id="emailField" type="text" name="email" onChange={(e) => this.handleInput(e)}></input>
-        <InvalidMessage isValid={this.validateEmail(email)}>Please enter a valid email.</InvalidMessage>
+          <Label>Email:</Label>
+          <InputField id="emailField" type="text" name="email" onChange={(e) => this.handleInput(e)}></InputField>
+          <InvalidMessage isValid={this.validateEmail(email)}>Please enter a valid email.</InvalidMessage>
 
-        <Label>Password:</Label>
-        <input id="passwordField" type="password" name="password" onChange={(e) => this.handleInput(e)}></input>
-        <InvalidMessage isValid={this.validatePW(password)}>Please enter a password.</InvalidMessage>
+          <Label>Password:</Label>
+          <InputField id="passwordField" type="password" name="password" onChange={(e) => this.handleInput(e)}></InputField>
+          <InvalidMessage isValid={this.validatePW(password)}>Please enter a password.</InvalidMessage>
 
-        <input id="submitButton" type="submit" disabled={!(this.validateEmail(email) && this.validatePW(password) )} onClick={(e) => {
-          e.preventDefault();
-          this.handleSubmit(e);
-        }}></input>
-      </FlexForm>
+          <SubmitBtn id="submitButton" type="submit" disabled={!(this.validateEmail(email) && this.validatePW(password) )} onClick={(e) => {
+            e.preventDefault();
+            this.handleSubmit(e);
+          }}></SubmitBtn>
+        </FlexForm>
+      </FormWrapper>
     )
   }
 }
