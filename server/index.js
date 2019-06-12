@@ -25,6 +25,8 @@ app.post("/api/login", (req, res) => {
         docs.length > 0
           ? "login successful"
           : "no user found with those credentials.";
+
+      res.statusCode = docs.length > 0 ? 200 : 400;
       res.json(response);
     }
   });
