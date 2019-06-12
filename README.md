@@ -1,4 +1,4 @@
-<img src="https://fec-brox.s3-us-west-2.amazonaws.com/images/brox-logo.png" title="brockross" alt="brockross-logo" style="width: 100px">
+<img src="https://fec-brox.s3-us-west-2.amazonaws.com/images/brox-logo.png" title="brockross" alt="brockross-logo" style="width: 100px;">
 
 # prokeep-challenge
 
