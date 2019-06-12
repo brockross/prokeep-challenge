@@ -1,22 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Form from './Form.jsx';
+import Form from "./Form.jsx";
 
 const Logo = styled.img`
   width: 150px;
-`
+`;
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 70vh;
-`
+`;
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   render() {
@@ -27,13 +27,11 @@ class App extends React.Component {
           <Form />
         </Wrapper>
       </div>
-
-    )
+    );
   }
 }
 
 export default App;
-
 
 /*
 
