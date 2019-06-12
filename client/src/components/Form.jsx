@@ -81,7 +81,7 @@ class Form extends React.Component {
   handleSubmit() {
     const {email, password} = this.state;
 
-    fetch('https://reqres.in/api/login  ', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -92,9 +92,7 @@ class Form extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      let message = data.token ? 'Login successful.' : 'No user found with those credentials.';
-
-      alert(message);
+      alert(JSON.stringify(data));
     });
   }
 
